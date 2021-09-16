@@ -21,7 +21,7 @@ export interface Item {
   providedIn: 'root'
 })
 export class DataService {
-  public messages: Message[];
+  public messages: Message[] = new Array();
   public mockMessages: Message[] = [
     {
       merchant: 'Yet another market',
@@ -118,7 +118,7 @@ export class DataService {
   constructor(private httpClient: HttpClient) { }
 
   public getMockMessages(): Message[] {
-    if(this.messages === undefined) {
+    if(this.messages.length === 0) {
       this.messages = this.mockMessages;
     }
     return this.messages;
@@ -137,7 +137,11 @@ export class DataService {
     const messages = this.getMessages();
 
     // last message id + 1
-    newMessage.id = messages[0].id + 1;
+    if(this.messages.length === 0) {
+      newMessage.id = 0;
+    } else {
+      newMessage.id = messages[0].id + 1;
+    }
     // add the message at first position and shifts the others
     this.messages.unshift(newMessage);
   }

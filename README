@@ -1,5 +1,9 @@
-Phone
+ionic serve
 
+ionic start --list
+
+
+# Phone
 # Download adb -> https://developer.android.com/studio/releases/platform-tools
 # Set environment variable path to run adb
 
