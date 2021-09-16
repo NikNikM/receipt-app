@@ -1,0 +1,26 @@
+Phone
+
+# Download adb -> https://developer.android.com/studio/releases/platform-tools
+# Set environment variable path to run adb
+
+adb devices
+# open Chrome -> Important!
+
+# Chrome -> chrome://inspect/#devices
+
+
+
+
+# Windows
+npm install @capacitor/camera
+npm install @capacitor/filesystem
+npm install @capacitor/storage
+ionic capacitor add android
+install Android SDK
+ionic capacitor run android
+
+
+# set env variable
+ANDROID_SDK_ROOT C:\Users\mini\AppData\Local\Android\Sdk
+
+ionic capacitor build android
