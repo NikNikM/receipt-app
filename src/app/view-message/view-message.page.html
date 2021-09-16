@@ -8,22 +8,26 @@
 
 <ion-content [fullscreen]="true" *ngIf="message">
   <ion-item>
-    <ion-icon name="person-circle" color="primary"></ion-icon>
+    <ion-img [src]="getLogoSrc(message.merchant)"></ion-img>
+  </ion-item>
+  <ion-item>
     <ion-label class="ion-text-wrap">
       <h2>
-        {{ message.fromName }}
+        {{ message.merchant }}
         <span class="date">
-          <ion-note>{{ message.date }}</ion-note>
+          <ion-note>{{ message.transactionDate |  date:'dd/MM/yyyy hh:mm:ss' }}</ion-note>
         </span>
       </h2>
-      <h3>To: <ion-note>Me</ion-note></h3>
     </ion-label>
   </ion-item>
-  
   <div class="ion-padding">
-    <h1>{{ message.subject }}</h1>
-    <p>
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-    </p>
+    <h1>Total: {{ message.total }}</h1>
+    <ion-list>
+      <ion-item *ngFor="let item of message.items">
+        <ion-note slot="start" color="secondary">{{item.quantity || '-'}}</ion-note>
+        <ion-label color="dark">{{item.name || '-'}}</ion-label>
+        <ion-note slot="end" color="primary">{{item.price || '-'}}</ion-note>
+      </ion-item>
+    </ion-list>
   </div>
 </ion-content>

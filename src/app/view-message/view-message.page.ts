@@ -25,4 +25,18 @@ export class ViewMessagePage implements OnInit {
     const mode = win && win.Ionic && win.Ionic.mode;
     return mode === 'ios' ? 'Inbox' : '';
   }
+
+  getLogoSrc(merchant: string): string {
+    if(merchant.toLowerCase().includes('coop')){
+      return 'https://www.coop.ch/_ui/21.2.2.1069/desktop/common/img/masthead/logo/img/coop_logo.svg';
+    } else if (merchant.toLowerCase().includes('migros')){
+      return 'https://www.migros.ch/dam/jcr:784c2e31-9dd8-42ec-8142-e75d1abb22d9/migrosx.svg';
+    } else if (merchant.toLowerCase().includes('denner')){
+      return 'https://www.denner.ch/typo3conf/ext/template_local/Resources/Public/Images/Denner-Logo.gif';
+    } else if (merchant.toLowerCase().includes('lidl')){
+      return 'https://www.lidl.ch/bundles/cakecomponents/dist/images/brand__ch.svg';
+    } else {
+      return 'https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y';
+    }
+  }
 }

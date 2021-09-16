@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Inbox
+      Receipts
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,15 +10,20 @@
   <ion-refresher slot="fixed" (ionRefresh)="refresh($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-  
+
   <ion-header collapse="condense">
     <ion-toolbar>
       <ion-title size="large">
-        Inbox
+        Receipts
       </ion-title>
     </ion-toolbar>
   </ion-header>
-  
+  <ion-fab vertical="top" horizontal="center" edge slot="fixed">
+    <ion-fab-button (click)="takePhoto()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <ion-progress-bar *ngIf="loading" type="indeterminate"></ion-progress-bar>
   <ion-list>
     <app-message *ngFor="let message of getMessages()" [message]="message"></app-message>
   </ion-list>
